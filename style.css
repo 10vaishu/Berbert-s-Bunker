@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family: Arial;
+}
+
+#game {
+    background: rgba(255,255,255,0.85);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#pet {
+    width: 200px;
+    height: auto;
+    margin: 15px;
+    transition: 0.3s;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ff7b7b;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff4d4d;
+    transform: scale(1.05);
+    
+}

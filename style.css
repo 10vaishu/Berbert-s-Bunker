@@ -1,43 +1,205 @@
 body {
     margin: 0;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-image: url("background.jpg");
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
     font-family: Arial;
 }
 
-#game {
-    background: rgba(255,255,255,0.85);
-    padding: 20px;
-    border-radius: 15px;
+
+.room {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
     text-align: center;
 }
 
-#pet {
-    width: 200px;
-    height: auto;
-    margin: 15px;
-    transition: 0.3s;
+.active {
+    display: block;
 }
 
-button {
-    padding: 10px 20px;
+
+#main { background: url("background.jpg") center/cover; }
+#kitchen { background: url("kitchen.jpg") center/cover; }
+#playroom { background: url("playroom.jpg") center/cover; }
+#bedroom { background: url("bedroom.jpg") center/cover; }
+
+
+#pet, .pet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 430px;
+    transition: all 0.2s ease;
+}
+
+
+.stats {
+    position: fixed;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffffffcc;
+    padding: 15px;
+    border-radius: 15px;
+    width: 140px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 20;
+}
+
+.stat {
+    margin-bottom: 10px;
+}
+
+.bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    width: 50%;
+    background: #4dce3c;
+    transition: 0.3s;
+    background: linear-gradient(90deg, #76ff7a, #00c853);
+}
+
+
+.menu {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.menu button {
+    font-size: 24px;
+    padding: 15px;
     margin: 5px;
-    font-size: 16px;
+    border-radius: 50%;
+    border: none;
+    background: #ffffffcc;
+}
+
+
+.action {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    font-size: 18px;
     border-radius: 10px;
     border: none;
-    background-color: #ff7b7b;
+    background: #ff7b7b;
     color: white;
-    cursor: pointer;
 }
 
-button:hover {
-    background-color: #ff4d4d;
-    transform: scale(1.05);
-    
+
+.back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 18px;
 }
+
+
+.hint {
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+
+#fade {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+    z-index: 10;
+}
+
+
+.pop {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.food {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    cursor: grab;
+}
+
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+
+.popup-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 200px;
+}
+
+#bedZone {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 70px;
+    background: rgba(0,0,0,0.1);
+}
+
+.ball {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    cursor: grab;
+}
+
+.table {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 120px;
+    background: #8b5a2b;
+    border-radius: 10px;
+}
+
+.hand {
+    position: absolute;
+    width: 100px;
+    pointer-events: none;
+    display: none;
+    z-index: 30;
+    transform: translate(-50%, -50%)
+}
+
+.hand:active {
+    transform: translate(-50%, -50%) scale(0.9);
+}
+

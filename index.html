@@ -1,42 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Berbert's Bunker</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    
-    <body>
-    <div id="game">
-    <h1>Berbert's Bunker</h1>
+<head>
+    <meta charset="UTF-8">
+    <title>My Pet Berbert</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="stats">
+
+    <div class="stat">
+        
+        <div class="bar"><div id="hungerBar" class="fill"></div></div>
+    </div>
+
+    <div class="stat">
+        
+        <div class="bar"><div id="happyBar" class="fill"></div></div>
+    </div>
+
+    <div class="stat">
+        
+        <div class="bar"><div id="energyBar" class="fill"></div></div>
+    </div>
+
+</div>
+
+<div id="fade"></div>
+
+
+<div id="main" class="room active">
     <img id="pet" src="happy.png">
-    <p>Hunger: <span id="hunger">50</span></p>
-    <p>Happiness: <span id="happiness">50</span></p>
+
+   
+
+    <div class="menu">
+        <button onclick="goRoom('kitchen')">🍔</button>
+        <button onclick="goRoom('playroom')">🎮</button>
+        <button onclick="goRoom('bedroom')">💤</button>
     </div>
-    </body>
+</div>
 
-    <div id="game">
-        <h1>Berbert's Bunker</h1>
 
-        <img id="pet" src="happy.png">
-        
-        <div class="stats">
-            <p>Hunger: <span id="hunger">50</span></p>
-            <p>Happiness: <span id="happiness">50</span></p>
-            <p>Energy: <span id="energy">50</span></p>
-        </div>
-
-        <div class="buttons">
-            <button onclick="feed()">Feed</button>
-            <button onclick="play()">Play</button>
-            <button onclick="sleep()">Sleep</button>
-        </div>
+<div id="kitchen" class="room">
+    <img class="pet" src="happy.png">
     
+    <div class="table">
+        <img id="food" src="burger.png" class="food">
     </div>
+    <button class="back" onclick="goRoom('main')">⬅</button>
+</div>
 
-    <script src="script.js"></script>
-    </html>
-    <body>
-        
-    
+
+<div id="playroom" class="room">
+    <img class="pet"  src="happy.png" onclick="play()">
+    <img id="hand" src="hand.png" class="hand">
+
+    <p class="hint">Pet him!</p>
+    <button class="back" onclick="goRoom('main')">⬅</button>
+</div>
+
+
+<div id="bedroom" class="room">
+    <img class="pet" src="sleepy.png">
+    <button class="action" onclick="sleep()">Sleep 💤</button>
+    <button class="back" onclick="goRoom('main')">⬅</button>
+    <div id="bedZone"></div>
+</div>
+
+<script src="script.js"></script>
+
+<div id="popup" class="popup">
+    <div class="popup-box">
+        <p id="popupText">Playtime over!</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+</div>
+</body>
+</html>
+
 
